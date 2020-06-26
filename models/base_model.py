@@ -2,7 +2,7 @@
 '''[Function base model]
 '''
 import uuid
-import datetime
+from datetime import datetime
 import models
 
 
@@ -15,14 +15,14 @@ class BaseModel:
         if kwargs:
             for key, value in kwargs.items():
                 if key in ['created_at']:
-                    value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if key in ['updated_at']:
-                    value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if key not in ['__class__']:
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()
+            self.created_at = datetime.now()
             self.updated_at = self.created_at
             models.storage.new(self)
 
@@ -38,7 +38,7 @@ class BaseModel:
     def save(self):
         '''[Function save that update the public instance attribute]
         '''
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
