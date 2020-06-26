@@ -4,6 +4,7 @@
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     '''[Function serializes instances to a JSON file and deserializes]
     '''
@@ -11,9 +12,9 @@ class FileStorage:
     __object = {}
 
     def all(self):
-       '''[all]
-       '''
-       return self.__object
+        '''[all]
+        '''
+        return self.__object
 
     def new(self, obj):
         '''[summary]
@@ -29,22 +30,19 @@ class FileStorage:
         '''[summary]
         '''
         obj = {}
-        for key, i in self.__object.items():
+        for key, i in type(self).__object.items():
             obj[key] = i.to_dict()
-        
+
         json_str = json.dumps(obj)
 
-        with open(self.__file_path, 'w', encoding='utf-8') as f:
+        with open(type(self).__file_path, 'w', encoding='utf-8') as f:
             f.write(json_str)
 
     def reload(self):
         '''[summary]
         '''
         try:
-            with open(self.__file_path, 'r', encoding='utf-8') as f:
+            with open(type(self).__file_path, 'r', encoding='utf-8') as f:
                 json_dict = json.load(f)
-                for obj in json_dict.values():
-                    cls = obj['__class__']
-                    self.new(eval('{}({})'.format(cls, '**obj')))
         except:
             pass
