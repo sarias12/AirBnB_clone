@@ -4,9 +4,14 @@ The command interpreter
 """
 import cmd
 import sys
+import shlex
+from models.base_model import BaseModel
+import models
 
+classes = ["BaseModel", "FileStorage"]
 
 class HBNBCommand(cmd.Cmd):
+    
     """
     HBNBCommand
     """
@@ -32,11 +37,37 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-    def do_create(self, name):
-        pass
+    def do_create(self, arg):
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] in classes:
+            new_instance = BaseModel()
+            new_instance.save() 
+            print(new_instance.id)
+        else:
+            print("** class doesn't exist **")
+            
+    def do_show(self, arg):
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** class name missing **")
+        elif not args[0] in classes:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        else:
+            all_obj = models.storage.all()
+            for key, value in all_obj.items():
+                id_current = key.split('.')
+                if id_current[1] == args[1]:
+                    print(all_obj[key])
+                    return
+            print("** no instance found **")
+            
+        
 
-    def do_show(self, args):
-        pass
+        
 
     def do_destroy(self, args):
         pass
