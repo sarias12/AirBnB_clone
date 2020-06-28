@@ -10,8 +10,8 @@ import models
 
 classes = ["BaseModel", "FileStorage"]
 
+
 class HBNBCommand(cmd.Cmd):
-    
     """
     HBNBCommand
     """
@@ -52,17 +52,17 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif args[0] in classes:
             new_instance = BaseModel()
-            new_instance.save() 
+            new_instance.save()
             print(new_instance.id)
         else:
             print("** class doesn't exist **")
-            
+
     def do_show(self, arg):
         """do_show
         Prints the string representation of an instance
         based on the class name and id
         Args:
-            arg (class): class's name (instance) for display id.
+            arg (class): class's name (instance) and id.
         Syntax:
             show <class_name> <id>
         Example:
@@ -82,16 +82,89 @@ class HBNBCommand(cmd.Cmd):
                 if id_current[1] == args[1]:
                     print(all_obj[key])
                     return
-            print("** no instance found **")        
+            print("** no instance found **")
 
-    def do_destroy(self, args):
-        pass
+    def do_destroy(self, arg):
+        """do_destroy
+        Deletes an instance based on the class name and id
+        Args:
+            arg (class): class's name (instance) and id.
+        Syntax:
+            destroy <class_name> <id>
+        Example:
+            $ destroy BaseModel 1234-1234-1234
+        """
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** class name missing **")
+        elif not args[0] in classes:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        else:
+            idx = "{}.{}".format(args[0], args[1])
+            all_obj = models.storage.all()
+            if idx in all_obj:
+                all_obj.pop(idx)
+                models.storage.save()
+            else:
+                print("** no instance found **")
 
-    def do_all(self, args):
-        pass
+    def do_all(self, arg):
+        """do_all
+        Prints all string representation of all instances
+        based or not on the class name
+        Args:
+            arg (class): class's name (instance) or nothing.
+        Syntax:
+            all or all <class_name>
+        Example:
+            $ all
+            (...)
+            $ all BaseModel
+        """
+        args = shlex.split(arg)
+        all_obj = models.storage.all()
+        new_list = []
+        for key, value in all_obj.items():
+            new_list.append(str(all_obj[key]))
+        if len(args) == 0:
+            print(new_list)
+        elif args[0] in classes:
+            print(new_list)
+        else:
+            print("** class doesn't exist **")
 
-    def do_update(self, args):
-        pass
+    def do_update(self, arg):
+        """do_update
+        Updates an instance based on the class name and id
+        by adding or updating attribute
+        Args:
+            arg (class): class's name (instance), id, key and value.
+        Syntax:
+            update <class_name> <id> <key> <value>
+        Example:
+            $ all BaseModel 1234-1234-123 email "example@holbertonschool.com"
+        """
+        args = shlex.split(arg)
+        all_obj = models.storage.all()
+        if len(args) == 0:
+            print("** class name missing **")
+        elif not args[0] in classes:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif len(args) == 2:
+            print("** attribute name missing **")
+        elif len(args) == 3:
+            print("** value missing **")
+        else:
+            obj = "{}.{}".format(args[0], args[1])
+            if obj in all_obj:
+                obj_new_attribute = all_obj[obj]
+                setattr(obj_new_attribute, args[2], args[3])
+            else:
+                print("** no instance found **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
