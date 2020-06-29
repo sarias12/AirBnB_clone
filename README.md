@@ -1,9 +1,11 @@
 
 # the AirBnB clone project!
 
-Description here!
+This project is about AirBnB. The goal is creates a program that add information from console 
+that creates, update, destroy and show all information about City, Amenity, Place, Review, State and Users, 
+with several information each models as date of creating and update, name, numbers, password and email.
 
-![](Place for picture)
+![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200629%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200629T143519Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=096ecda1fb64c5f320bed0f1ac524642fa38c8cf3ed2982a618f6061ddc7e8f4)
 
 #### Clone Repository with HTTPS
 
@@ -28,7 +30,7 @@ git clone https://github.com/LizethVictoria20/AirBnB_clone.git
 
 
 ```
-#cisfun$ command [-flag or -option] [arguments,  files or  directories]
+(hbnb) command [name class] [arguments, key, value]
 ```
 
 | Command  | Description |
@@ -40,10 +42,11 @@ git clone https://github.com/LizethVictoria20/AirBnB_clone.git
 | **destroy** | Deletes an instance based on the class name and id. | 
 | **all** | Prints all string representation of all instances based or not on the class name.| 
 | **update** | Updates an instance based on the class name and id by adding or updating attribute. | 
+| **show** | Show an instance based on the class name and id. | 
 
 
 ### How to use
-shell should work like this in interactive mode:
+Console should work like this in interactive mode:
 ```
 $ ./console.py
 (hbnb) help
