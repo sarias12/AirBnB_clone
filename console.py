@@ -5,16 +5,26 @@ The command interpreter
 import cmd
 import sys
 import shlex
-from models.base_model import BaseModel
 import models
+from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
-classes = ["BaseModel", "FileStorage"]
+
+classes = {'BaseModel': BaseModel, 'Amenity': Amenity,
+               'State': State, 'Place': Place, 'Review': Review,
+               'User': User, 'City': City}
 
 
 class HBNBCommand(cmd.Cmd):
     """
     HBNBCommand
     """
+
     prompt = '(hbnb) '
 
     def do_EOF(self, line):
@@ -51,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] in classes:
-            new_instance = BaseModel()
+            new_instance = classes[args[0]]()
             new_instance.save()
             print(new_instance.id)
         else:
@@ -131,6 +141,11 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print(new_list)
         elif args[0] in classes:
+            new_list = []
+            for key, value in all_obj.items():
+                obj_current = key.split('.')
+                if obj_current[0] == args[0]:
+                    new_list.append(str(all_obj[key]))
             print(new_list)
         else:
             print("** class doesn't exist **")
@@ -163,6 +178,7 @@ class HBNBCommand(cmd.Cmd):
             if obj in all_obj:
                 obj_new_attribute = all_obj[obj]
                 setattr(obj_new_attribute, args[2], args[3])
+                obj_new_attribute.save()
             else:
                 print("** no instance found **")
 
