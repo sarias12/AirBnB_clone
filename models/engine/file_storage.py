@@ -50,7 +50,7 @@ class FileStorage:
             f.write(json_str)
 
     def reload(self):
-        '''[Function reload deserializes the JSON file 
+        '''[Function reload deserializes the JSON file
         to __objects (only if the JSON file (__file_path) exists]
         '''
         try:
@@ -59,6 +59,5 @@ class FileStorage:
                 for key, value in json_dict.items():
                     name_class = eval(value['__class__'])(**value)
                     type(self).__objects[key] = name_class
-        
         except:
             pass
