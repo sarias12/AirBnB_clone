@@ -15,23 +15,20 @@ from models.amenity import Amenity
 from models.review import Review
 
 
-classes = {
-    'BaseModel': BaseModel, 'Amenity': Amenity,
-    'State': State, 'Place': Place, 'Review': Review,
-    'User': User, 'City': City
-    }
+
 
 
 class HBNBCommand(cmd.Cmd):
     """
     HBNBCommand
     """
+    classes = {
+        'BaseModel': BaseModel, 'Amenity': Amenity,
+        'State': State, 'Place': Place, 'Review': Review,
+        'User': User, 'City': City
+    }
 
     prompt = '(hbnb) '
-
-    def precmd(self, line):
-        print('precmd({})'.format(line))
-        return cmd.Cmd.precmd(self, line)
 
     def do_EOF(self, line):
         """
@@ -66,8 +63,8 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] in classes:
-            new_instance = classes[args[0]]()
+        elif args[0] in self.classes:
+            new_instance = self.classes[args[0]]()
             new_instance.save()
             print(new_instance.id)
         else:
@@ -87,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
-        elif not args[0] in classes:
+        elif not args[0] in self.classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -113,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
-        elif not args[0] in classes:
+        elif not args[0] in self.classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -146,7 +143,7 @@ class HBNBCommand(cmd.Cmd):
             new_list.append(str(all_obj[key]))
         if len(args) == 0:
             print(new_list)
-        elif args[0] in classes:
+        elif args[0] in self.classes:
             new_list = []
             for key, value in all_obj.items():
                 obj_current = key.split('.')
@@ -171,7 +168,7 @@ class HBNBCommand(cmd.Cmd):
         all_obj = models.storage.all()
         if len(args) == 0:
             print("** class name missing **")
-        elif not args[0] in classes:
+        elif not args[0] in self.classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
