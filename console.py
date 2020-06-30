@@ -15,9 +15,11 @@ from models.amenity import Amenity
 from models.review import Review
 
 
-classes = {'BaseModel': BaseModel, 'Amenity': Amenity,
-               'State': State, 'Place': Place, 'Review': Review,
-               'User': User, 'City': City}
+classes = {
+    'BaseModel': BaseModel, 'Amenity': Amenity,
+    'State': State, 'Place': Place, 'Review': Review,
+    'User': User, 'City': City
+    }
 
 
 class HBNBCommand(cmd.Cmd):
@@ -26,6 +28,10 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = '(hbnb) '
+
+    def precmd(self, line):
+        print('precmd({})'.format(line))
+        return cmd.Cmd.precmd(self, line)
 
     def do_EOF(self, line):
         """
