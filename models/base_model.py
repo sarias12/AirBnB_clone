@@ -47,7 +47,7 @@ class BaseModel:
         Returns:
             [dict]: [Return a dictionary]
         '''
-        dicty = dict(self.__dict__)
+        dicty = self.__dict__.copy()
         dicty['__class__'] = type(self).__name__
         dicty['created_at'] = self.created_at.isoformat()
         dicty['updated_at'] = self.updated_at.isoformat()
