@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-'''[Function base model]
-'''
+"""[Function base model]
+"""
 import uuid
 from datetime import datetime
 import models
 
 
 class BaseModel:
-    '''[Defines all common attributes/methods for other classes]
-    '''
+    """[Defines all common attributes/methods for other classes]
+    """
     def __init__(self, *args, **kwargs):
-        '''[Constructor]
-        '''
+        """[Constructor]
+        """
         if kwargs:
             for key, value in kwargs.items():
                 if key in ['created_at']:
@@ -27,26 +27,26 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        '''[Function str]
+        """[Function str]
 
         Returns:
             [str]: [Return string]
-        '''
+        """
         return "[{}] ({}) {}".format(
             type(self).__name__, self.id, self.__dict__)
 
     def save(self):
-        '''[Function save that update the public instance attribute]
-        '''
+        """[Function save that update the public instance attribute]
+        """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        '''[Function that return a dictinary containing all key/values]
+        """[Function that return a dictinary containing all key/values]
 
         Returns:
             [dict]: [Return a dictionary]
-        '''
+        """
         dicty = self.__dict__.copy()
         dicty['__class__'] = type(self).__name__
         dicty['created_at'] = self.created_at.isoformat()
