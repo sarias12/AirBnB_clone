@@ -217,6 +217,13 @@ class HBNBCommand(cmd.Cmd):
                     return
                 except:
                     pass
+                try:
+                    tmp = args[1].split('destroy')
+                    tmp2 = eval(tmp[1])
+                    self.do_destroy(args[0] + ' ' + tmp2)
+                    return
+                except:
+                    pass
         print("*** Unknown syntax: {}".format(arg))
 
 if __name__ == '__main__':
