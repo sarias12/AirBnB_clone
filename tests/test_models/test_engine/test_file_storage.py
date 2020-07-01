@@ -14,3 +14,16 @@ class tests_Amenity(unittest.TestCase):
         result = pep8style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(
             result.total_errors, 0, "Found code style errors (and warnings).")
+
+    def test_all(self):
+        """[test inst all]"""
+
+    def test_new(self):
+        """[test inst new]"""
+
+    def test_save(self):
+        """[test inst save]"""
+
+    def test_reload(self):
+        """[test inst all]"""
+        
