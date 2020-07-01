@@ -15,9 +15,6 @@ from models.amenity import Amenity
 from models.review import Review
 
 
-
-
-
 class HBNBCommand(cmd.Cmd):
     """
     HBNBCommand
@@ -83,6 +80,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
         elif not args[0] in self.classes:
+            print(args[0])
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -211,6 +209,14 @@ class HBNBCommand(cmd.Cmd):
                         count += 1
                 print(count)
                 return
+            else:
+                try:
+                    tmp = args[1].split('show')
+                    tmp2 = eval(tmp[1])
+                    self.do_show(args[0] + ' ' + tmp2)
+                    return
+                except:
+                    pass
         print("*** Unknown syntax: {}".format(arg))
 
 if __name__ == '__main__':
