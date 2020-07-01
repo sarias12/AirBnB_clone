@@ -15,8 +15,3 @@ class tests_City(unittest.TestCase):
         result = pep8style.check_files(['models/city.py'])
         self.assertEqual(
             result.total_errors, 0, "Found code style errors (and warnings).")
-
-    def test_city(self):
-        """Unittest city method"""
-        Cities = City()
-        self.assertEqual(type(Cities).__name__("City"))
