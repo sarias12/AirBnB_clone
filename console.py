@@ -180,6 +180,12 @@ class HBNBCommand(cmd.Cmd):
             obj = "{}.{}".format(args[0], args[1])
             if obj in all_obj:
                 obj_new_attribute = all_obj[obj]
+                try:
+                    tmp = eval(args[3])
+                    if type(tmp) == int or type(tmp) == float:
+                        args[3] = tmp
+                except:
+                    pass
                 setattr(obj_new_attribute, args[2], args[3])
                 obj_new_attribute.save()
             else:
