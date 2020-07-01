@@ -189,5 +189,29 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
+    def default(self, arg):
+        """default [summary]
+
+        Args:
+            arg ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
+        args = arg.split('.')
+        if len(args) > 1:
+            if args[1] == 'all()':
+                return self.do_all(args[0])
+            elif args[1] == 'count()':
+                count = 0
+                all_obj = models.storage.all()
+                for key, value in all_obj.items():
+                    tmp = key.split('.')
+                    if args[0] in tmp:
+                        count += 1
+                print(count)
+                return
+        print("*** Unknown syntax: {}".format(arg))
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
