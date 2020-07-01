@@ -16,11 +16,12 @@ class tests_BaseModel(unittest.TestCase):
         self.assertEqual(
             result.total_errors, 0, "Found code style errors (and warnings).")
 
-
     def test_args(self):
+        """[Unittest for class BaseModel]
+        """
         name_class_bas = BaseModel(name="Holis")
         self.assertEqual(type(name_class_bas).__name__(BaseModel))
-        self.assertFalse(hasattr(name_class_bas="created_at"))
-        self.assertFalse(hasattr(name_class_bas="updated_at"))
-        self.assertFalse(hasattr(name_class_bas="__class__"))
-        self.assertFalse(hasattr(name_class_bas="id"))
+        self.assertTrue(hasattr(name_class_bas="created_at"))
+        self.assertTrue(hasattr(name_class_bas="updated_at"))
+        self.assertTrue(hasattr(name_class_bas="__class__"))
+        self.assertTrue(hasattr(name_class_bas="id"))
