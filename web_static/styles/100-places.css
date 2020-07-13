@@ -76,3 +76,66 @@ article h2 {
 .user span {
     font-weight: bold;
 }
+
+article .amenities {
+    padding-left: 0px;
+    width: 100%;
+    height: auto;
+}
+
+article .amenities h2 {
+    font-size: 16px;
+    border-bottom: #DDDDDD 1px solid;
+    text-align: left;
+    margin-top: 40px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+article .amenities li {
+    list-style: none;
+}
+
+article .amenities ul {
+    padding: 16px;
+}
+.amenities-1,
+.amenities-2,
+.amenities-3 {
+    position: relative;
+}
+
+.amenities-1::before,
+.amenities-2::before,
+.amenities-3::before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 20px;
+    margin: 0px 0px 8px 5px;
+}
+
+.amenities-1::before {
+    background-image: url("../images/icon_tv.png");
+}
+
+.amenities-2::before {
+    background-image: url("../images/icon_wifi.png");  
+}
+
+.amenities-3::before {
+    background-image: url("../images/icon_pets.png");
+}
+
+.reviews {
+    font-size: 16px;
+}
+
+.reviews li h3 {
+    font-size: 14px;
+}
+.reviews p {
+    font-size: 14px;
+}
