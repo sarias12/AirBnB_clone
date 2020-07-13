@@ -1,23 +1,25 @@
 .places {
-    margin-left: 30px;
+    padding: 20px;
     text-align: center;
+
+}
+.places > h1 {
+    display: block;
+    font-size: 30px;
+    text-align: start;
 }
 
-.places h1 {
-    font-size: 30px;
-    text-align: left;
-}
 article {
     width: 390px;
     padding: 20px;
     margin: 20px;
-    border: #FF5A5F 1px solid;
+    border: 1px solid #FF5A5F;
     border-radius: 4px;
     display: inline-block;
 
 }
 
-article h2 {
+article > h2 {
     font-size: 30px;
     text-align: center;
 }

@@ -1,196 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AirBnB clone</title>
+        <link rel="stylesheet" href="styles/4-common.css">
+        <link rel="stylesheet" href="styles/3-header.css">
+        <link rel="stylesheet" href="styles/3-footer.css">
+        <link rel="stylesheet" href="styles/6-filters.css">
+        <link rel="stylesheet" href="styles/100-places.css">
+        <link rel="shortcut icon" href="images/icon.png"/>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/4-common.css">
-    <link rel="stylesheet" href="styles/3-header.css">
-    <link rel="stylesheet" href="styles/3-footer.css">
-    <link rel="stylesheet" href="styles/6-filters.css">
-    <link rel="stylesheet" href="styles/100-places.css">
-    <link rel="shortcut icon" href="./images/icon.png" type="image/x-icon">
-    <title>AirBnB clone</title>
-</head>
+    <!-- Body -->
 
-<body>
-    <header>
-    </header>
-    <div class="container">
-        <section class="filter">
-            <div class="locations">
-                <h3>State</h3>
-                <h4>California, Arizona</h4>
-                <ul class="popover">
-                    <h2>Arizona</h2>
-                    <li>Page</li>
-                    <li>Page 2</li>
-                    <h2>California</h2>
-                    <li>San Francisco</li>
-                    <li>Los Altos</li>
-                </ul>
+    <body>
 
-            </div>
-            <div class="amenities">
-                <h3>Amenities</h3>
-                <h4>Internet</h4>
-                <ul class="popover">
-                    <li>Tv</li>
-                    <li>Iron</li>
-                    <li>Kitchen</li>
-                    <li>Internet</li>
-                </ul>
-            </div>
-            <button>Search</button>
-        </section>
-        <section class="places">
-            <h1>Places</h1><br />
-            <article>
-                <h2>My home</h2>
-                <div class="price_by_night">
-                    <p>$80</p>
-                </div>
-                <div class="information">
-                    <div class="max_guest">
-                        <h3>2 Guests</h3>
-                    </div>
-                    <div class="number_rooms">
-                        <h3>1 Bedroom</h3>
-                    </div>
-                    <div class="number_bathrooms">
-                        <h3>1 Bathroom</h3>
-                    </div>
-                </div>
-                <div class="user">
-                    <p><span>Owner:</span> John Lennon</p>
-                </div>
-                <div class="description">
-                    <p>This is a lovely 1 bedroom and 1 bathroom apartament that can
-                        accommodate 2 people. It locates at the center of Shanghai and
-                        next to subway line 1, 1 stop to People Square, 2 stops to Bund,
-                        3 stops to Jingan Temple.
-                    </p>
+        <!-- Header -->
+        
+        <header>
+        </header>
+
+        <!-- Main Container -->
+
+        <div class="container">
+            <section class="filters">
+                <div class="locations">
+                    <ul class="popover">
+                        <li>
+                            <h3>States</h3>
+                            <h4>Antioquia, Cundinamarca..</h4>
+                            <ul>
+                                <li><h2>Antioquia:</h2>
+                                    <li>
+                                        <li>Bello</li>
+                                        <li>Medellin</li>
+                                    </li>
+                                </li>
+                                <li><h2>Cundinamarca:</h2>
+                                    <li>
+                                        <li>Zipaquira</li>
+                                        <li>Girardot</li>
+                                    </li>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div class="amenities">
-                    <h2>Amenities</h2>
-                    <ul>
-                        <li class="amenities-1">TV</li>
-                        <li class="amenities-2">Wifi</li>
-                        <li class="amenities-3">Pets friendly</li>
+                    <ul class="popover">
+                        <li>
+                            <h3>Amenities</h3>
+                            <h4>Internet, kitchen...</h4>
+                            <ul>
+                                <li>Internet</li>
+                                <li>TV</li>
+                                <li>Kitchen</li>
+                                <li>Iron</li>
+                                
+                            </ul>
+                        </li>
                     </ul>
-                    <div class="reviews">
-                        <h2>2 Reviews</h2>
+                </div>
+                <button>Search</button>
+
+            </section>
+            <section class="places">
+                <h1>Places</h1>
+                <article>
+                    <h2>My Home</h2>
+                    <div class="price_by_night">$80</div>
+                    <div class="information">
+                        <div class="max_guest"><h5>2 Guest</h5></div>
+                        <div class="number_rooms"><h5>1 Bedroom</h5></div>
+                        <div class="number_bathrooms"><h5>1 Bathroom</h5></div>
+                    </div>
+                    <div class="user"><b>Owner: </b>Jhon Lennon</div>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit libero eius sunt sed vitae iure quod adipisci ipsa iusto, nam culpa veniam esse ratione rerum doloribus nisi incidunt maxime dicta?</div>
+                    <div class="amenities">
+                        <h2>Amenities</h2>
                         <ul>
-                            <li>
-                                <h3>From Bob Dylan the 27th January 2017</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, ullam.</p>
-                            </li>
-                            <li>
-                                <h3>From Bob Dylan the 27th January 2017</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, ullam.</p>
-                            </li>
+                            <li class="pic-1">Pet Friendly</li>
+                            <li class="pic-2">TV</li>
                         </ul>
                     </div>
-                </div>
-
-            </article>
-            <article>
-                <h2>Tiny House</h2>
-                <div class="price_by_night">
-                    <p>$65</p>
-                </div>
-                <div class="information">
-                    <div class="max_guest">
-                        <h3>2 Guests</h3>
-                    </div>
-                    <div class="number_rooms">
-                        <h3>1 Bedroom</h3>
-                    </div>
-                    <div class="number_bathrooms">
-                        <h3>1 Bathroom</h3>
-                    </div>
-                </div>
-                <div class="user">
-                    <p><span>Owner:</span> Adrienne</p>
-                </div>
-                <div class="description">
-                    <p>Our place is a private, affordable stand-alone guest House
-                        centrally located just minutes to French Quearters, downtown,
-                        the Fair Grounds(Jazz Fest) and City Park. The guest house is
-                        a quaint, 400 square ft. with a full bath, mini kitchen, & living
-                        room. The extra high ceilings make the home feel more spacious.
-                        The sofa converts to a bed also. We have a hand made counter area
-                        that adds character to the room and a great porch/deck to relax on
-                        and have a glass of Merlot.
-                    </p>
-                </div>
-                <div class="amenities">
-                    <h2>Amenities</h2>
-                    <ul>
-                        <li class="amenities-3">Pets friendly</li>
-                    </ul>
-                    <div class="reviews">
-                        <h2>2 Reviews</h2>
-                        <ul>
-                            <li>
-                                <h3>From Bob Dylan the 27th January 2017</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, ullam.</p>
-                            </li>
-                            <li>
-                                <h3>From Bob Dylan the 27th January 2017</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, ullam.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <h2>A suite</h2>
-                <div class="price_by_night">
-                    <p>$190</p>
-                </div>
-                <div class="information">
-                    <div class="max_guest">
-                        <h3>2 Guests</h3>
-                    </div>
-                    <div class="number_rooms">
-                        <h3>1 Bedroom</h3>
-                    </div>
-                    <div class="number_bathrooms">
-                        <h3>1 Bathroom</h3>
-                    </div>
-                </div>
-                <div class="user">
-                    <p><span>Owner:</span> John Lennon</p>
-                </div>
-                <div class="description">
-                    <p>This is a lovely 1 bedroom and 1 bathroom apartament that can
-                        accommodate 2 people. It locates at the center of Shanghai and
-                        next to subway line 1, 1 stop to People Square, 2 stops to Bund,
-                        3 stops to Jingan Temple.
-                    </p>
-                </div>
-                <div class="amenities">
-                    <h2>Amenities</h2>
-                    <ul>
-                        <li class="amenities-1">TV</li>
-                        <li class="amenities-2">Wifi</li>
-                        <li class="amenities-3">Pets friendly</li>
-                    </ul>
                     <div class="reviews">
                         <h2>1 Reviews</h2>
                         <ul>
                             <li>
-                                <h3>From Bob Dylan the 27th January 2017</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, ullam.</p>
+                                <h3>From Carlos Perez the 20th may 2020</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit laboriosam architecto aperiam repellendus sint cum. Nihil impedit dolore veritatis, pariatur, ipsam recusandae rerum vero eum deleniti, aspernatur officia labore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur corporis alias quos adipisci mollitia architecto natus culpa modi, hic veritatis unde laudantium magni minus quas at eveniet, sed inventore quibusdam.</p>
                             </li>
                         </ul>
                     </div>
-                </div>
-            </article>
-        </section>
-    </div>
-    <footer>Holberton School</footer>
-</body>
+                </article>
+                <article>
+                    <h2>Tiny house</h2>
+                    <div class="price_by_night">$65</div>
+                    <div class="information">
+                        <div class="max_guest"><h5>2 Guest</h5></div>
+                        <div class="number_rooms"><h5>2 Bedroom</h5></div>
+                        <div class="number_bathrooms"><h5>1 Bathroom</h5></div>
+                    </div>
+                    <div class="user"><b>Owner: </b>Steve Gregory</div>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit libero eius sunt sed vitae iure quod adipisci ipsa iusto, nam culpa veniam esse ratione rerum doloribus nisi incidunt maxime dicta?Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quidem libero ratione ea natus aperiam cum quis saepe deserunt praesentium ullam assumenda iure earum qui, quas distinctio omnis repellat placeat.</div>
+                    <div class="amenities">
+                        <h2>Amenities</h2>
+                        <ul>
+                            <li class="pic-2">TV</li>
+                            <li class="pic-3">Internet</li>
+                        </ul>
+                    </div>
+                    <div class="reviews">
+                        <h2>2 Reviews</h2>
+                        <ul>
+                            <li>
+                                <h3>From Edison Giraldo the 6th february 2020</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit laboriosam architecto aperiam repellendus sint cum. Nihil impedit dolore veritatis, pariatur, ipsam recusandae rerum vero eum deleniti, aspernatur officia labore?</p>
+                            </li>
+                            <li>
+                                <h3>Steben Arias the 18th June 2020</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit laboriosam architecto aperiam repellendus sint cum. Nihil impedit dolore veritatis, pariatur, ipsam recusandae rerum vero eum deleniti, aspernatur officia labore?</p>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <h2>A suite</h2>
+                    <div class="price_by_night">$190</div>
+                    <div class="information">
+                        <div class="max_guest"><h5>3 Guest</h5></div>
+                        <div class="number_rooms"><h5>3 Bedroom</h5></div>
+                        <div class="number_bathrooms"><h5>3 Bathroom</h5></div>
+                    </div>
+                    <div class="user"><b>Owner: </b>Jhon Lennon</div>
+                    <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut ducimus placeat quisquam libero. Nemo iure ex expedita rerum quae ullam perspiciatis ea fugit natus, enim ut voluptates iusto laborum quasi sit illum qui repellat minus voluptatibus voluptate laudantium assumenda eligendi debitis velit. Ea debitis ratione repellendus. Ea quam saepe cupiditate?</div>
+                    <div class="amenities">
+                        <h2>Amenities</h2>
+                        <ul>
+                            <li class="pic-1">Pet Friendly</li>
+                            <li class="pic-2">TV</li>
+                            <li class="pic-3">Internet</li>
+                        </ul>
+                    </div>
+                    <div class="reviews">
+                        <h2>1 Reviews</h2>
+                        <ul>
+                            <li>
+                                <h3>From Fabian Riascos the 12 July 2020</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit laboriosam architecto aperiam repellendus sint cum. Nihil impedit dolore veritatis, pariatur, ipsam recusandae rerum vero eum deleniti, aspernatur officia labore?</p>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
 
+
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+
+        <footer>
+            <p>Holberton School</p>
+        </footer>
+
+    </body>
+    
 </html>
